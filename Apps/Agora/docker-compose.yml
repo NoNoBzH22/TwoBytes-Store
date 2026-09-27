@@ -1,0 +1,85 @@
+name: agora
+services:
+  agora:
+    image: nonobzh22/agora:2.0.0
+    container_name: agora
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - target: 3067
+        published: "3067"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/$AppID/data
+        target: /data
+      - type: bind
+        source: /DATA/AppData/$AppID/downloads
+        target: /downloads
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+    x-casaos:
+      ports:
+        - container: "3067"
+          description:
+            en_US: WebUI HTTP Port
+            fr_FR: Port HTTP de l'interface web
+      volumes:
+        - container: /data
+          description:
+            en_US: "Agora data: settings, users, sessions, plugins and SQLite databases."
+            fr_FR: "Données d'Agora : réglages, utilisateurs, sessions, plugins et bases SQLite."
+        - container: /downloads
+          description:
+            en_US: Folder watched by JDownloader for .crawljob files.
+            fr_FR: Dossier surveillé par JDownloader pour les fichiers .crawljob.
+
+x-casaos:
+  id: space.nolhantirer.agora
+  architectures:
+    - amd64
+    - arm64
+  main: agora
+  author: TwoBytes
+  developer: Nolhan
+  category: Media
+  icon: https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/Agora/icon.png
+  thumbnail: https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/Agora/screenshot-1.png
+  screenshot_link:
+    - https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/Agora/screenshot-1.png
+    - https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/Agora/screenshot-2.png
+  tagline:
+    en_US: Search, browse and send downloads from plugin-based sources.
+    fr_FR: Recherche, catalogue et envoi de téléchargements depuis des sources à plugins.
+  description:
+    en_US: |
+      Agora is a self-hosted web app that searches several sources at once through signed plugins, shows the results with TMDB metadata, and hands the links to JDownloader.
+
+      - Plugin marketplace with Ed25519-signed plugins
+      - Multi-user accounts with an admin role
+      - First-run setup wizard: create the admin account, pick plugins, configure
+      - Works over plain HTTP on your LAN; HTTPS is optional behind a reverse proxy
+    fr_FR: |
+      Agora est une application web auto-hébergée qui interroge plusieurs sources à la fois grâce à des plugins signés, affiche les résultats avec les métadonnées TMDB et transmet les liens à JDownloader.
+
+      - Marketplace de plugins signés en Ed25519
+      - Comptes multi-utilisateurs avec rôle administrateur
+      - Assistant de première configuration : compte admin, choix des plugins, réglages
+      - Fonctionne en HTTP sur le réseau local ; le HTTPS est optionnel derrière un reverse proxy
+  tips:
+    before_install:
+      en_US: On first launch, open the web UI and follow the setup wizard to create the admin account.
+      fr_FR: Au premier lancement, ouvrez l'interface web et suivez l'assistant pour créer le compte administrateur.
+  title:
+    en_US: Agora
+  index: /
+  port_map: "3067"
+  scheme: http
+  version: "2.0.0"
+  update_at: "2026-09-27"
+  release_notes:
+    en_US: "Agora 2.0: plugin marketplace, setup wizard, security hardening."
+    fr_FR: "Agora 2.0 : marketplace de plugins, assistant de configuration, durcissement de la sécurité."
+  website: https://hub.docker.com/r/nonobzh22/agora

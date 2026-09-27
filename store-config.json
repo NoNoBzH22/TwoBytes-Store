@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "store_id": "twobytes-store",
+  "name": {
+    "en_US": "TwoBytes Store",
+    "fr_FR": "TwoBytes Store"
+  },
+  "description": {
+    "en_US": "Self-hosted apps from TwoBytes: Agora and DVinyl.",
+    "fr_FR": "Applications auto-hébergées de TwoBytes : Agora et DVinyl."
+  },
+  "maintainer": "NoNoBzH22",
+  "url": "https://github.com/NoNoBzH22/TwoBytes-Store"
+}

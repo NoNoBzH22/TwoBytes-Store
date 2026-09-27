@@ -2,10 +2,10 @@
 
 Store d'applications tiers pour [ZimaOS](https://www.zimaspace.com/) et [CasaOS](https://casaos.io/).
 
-| Application | Description | Port |
-|---|---|---|
-| [Agora](Apps/Agora) | Recherche multi-sources à plugins, métadonnées TMDB, envoi vers JDownloader | 3067 |
-| [DVinyl](Apps/DVinyl) | Gestion de collections physiques (vinyles, CD, livres, films, jeux, LEGO) par [Kyonew](https://github.com/Kyonew/DVinyl) | 3099 |
+| Application | Description | Langue | Port |
+|---|---|---|---|
+| [Agora](Apps/Agora) | Recherche multi-sources à plugins, métadonnées TMDB, envoi vers JDownloader | Français | 3067 |
+| [DVinyl](Apps/DVinyl) | Gestion de collections physiques (vinyles, CD, livres, films, jeux, LEGO) par [Kyonew](https://github.com/Kyonew/DVinyl) | Multilingue (EN, FR, DE, ES, IT) | 3099 |
 
 ## Ajouter le store
 

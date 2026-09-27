@@ -1,0 +1,50 @@
+name: Publish store
+
+# Construit le store au format v2 de ZimaOS (index.json, store.json, apps/<id>/)
+# et le publie sur la branche gh-pages, servie par jsDelivr.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-store
+  cancel-in-progress: true
+
+env:
+  BASE_URL: https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@gh-pages
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build store
+        uses: IceWhaleTech/build-appstore-action@c9bb47fad5b32d7928a07978fad68801f52e910f
+        with:
+          source: .
+          output: dist
+          base-url: ${{ env.BASE_URL }}
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
+          publish_branch: gh-pages
+          force_orphan: true
+          enable_jekyll: false
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
+
+      - name: Purge jsDelivr cache
+        run: |
+          sleep 10
+          for f in $(cd dist && find . -type f -name '*.json' -o -type f -name '*.yml' | sed 's|^\./||'); do
+            curl -fsS -o /dev/null "https://purge.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@gh-pages/$f" || echo "purge failed: $f"
+          done

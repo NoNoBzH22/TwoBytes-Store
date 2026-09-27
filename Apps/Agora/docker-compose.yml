@@ -46,20 +46,29 @@ x-casaos:
   developer: Nolhan
   category: Media
   icon: https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/main/Apps/Agora/icon.png
+  thumbnail: https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/main/Apps/Agora/screenshot-1.webp
+  screenshot_link:
+    - https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/main/Apps/Agora/screenshot-1.webp
+    - https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/main/Apps/Agora/screenshot-2.webp
+    - https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/main/Apps/Agora/screenshot-3.webp
+    - https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/main/Apps/Agora/screenshot-4.webp
+    - https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/main/Apps/Agora/screenshot-5.webp
   tagline:
-    en_US: Search, browse and send downloads from plugin-based sources.
-    fr_FR: Recherche, catalogue et envoi de téléchargements depuis des sources à plugins.
+    en_US: "French app: search, browse and send downloads from plugin-based sources."
+    fr_FR: "Application française : recherche, catalogue et envoi de téléchargements depuis des sources à plugins."
   description:
     en_US: |
-      Agora is a self-hosted web app that searches several sources at once through signed plugins, shows the results with TMDB metadata, and hands the links to JDownloader.
+      Agora is a French self-hosted web app: its interface is in French and its official plugins target French-language sources. It searches several sources at once through signed plugins, shows the results with TMDB metadata, and hands the links to JDownloader.
 
+      - French interface (no other language for now)
       - Plugin marketplace with Ed25519-signed plugins
       - Multi-user accounts with an admin role
       - First-run setup wizard: create the admin account, pick plugins, configure
       - Works over plain HTTP on your LAN; HTTPS is optional behind a reverse proxy
     fr_FR: |
-      Agora est une application web auto-hébergée qui interroge plusieurs sources à la fois grâce à des plugins signés, affiche les résultats avec les métadonnées TMDB et transmet les liens à JDownloader.
+      Agora est une application web auto-hébergée française : son interface est en français et ses plugins officiels visent des sources francophones. Elle interroge plusieurs sources à la fois grâce à des plugins signés, affiche les résultats avec les métadonnées TMDB et transmet les liens à JDownloader.
 
+      - Interface en français
       - Marketplace de plugins signés en Ed25519
       - Comptes multi-utilisateurs avec rôle administrateur
       - Assistant de première configuration : compte admin, choix des plugins, réglages

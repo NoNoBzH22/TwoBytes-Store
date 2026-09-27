@@ -46,10 +46,6 @@ x-casaos:
   developer: Nolhan
   category: Media
   icon: https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/Agora/icon.png
-  thumbnail: https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/Agora/screenshot-1.png
-  screenshot_link:
-    - https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/Agora/screenshot-1.png
-    - https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/Agora/screenshot-2.png
   tagline:
     en_US: Search, browse and send downloads from plugin-based sources.
     fr_FR: Recherche, catalogue et envoi de téléchargements depuis des sources à plugins.

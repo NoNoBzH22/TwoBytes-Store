@@ -1,2 +1,4 @@
 *.zip
 Thumbs.db
+dist/
+.cache/

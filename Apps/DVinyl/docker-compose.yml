@@ -1,0 +1,154 @@
+name: dvinyl
+services:
+  dvinyl:
+    image: ghcr.io/kyonew/dvinyl:latest
+    container_name: dvinyl
+    restart: unless-stopped
+    depends_on:
+      - dvinyl-db
+    ports:
+      - target: 3099
+        published: "3099"
+        protocol: tcp
+    environment:
+      MONGODB_URL: mongodb://dvinyl-db:27017/dvinyl
+      VINYL_PORT: "3099"
+      PROD: "false"
+      BASE_URL: ""
+      DISCOGS_TOKEN: ""
+      HARDCOVER_API_KEY: ""
+      TMDB_API_KEY: ""
+      TWITCH_CLIENT_ID: ""
+      TWITCH_CLIENT_SECRET: ""
+      REBRICKABLE_API_KEY: ""
+    # PASSJWT et SESSION_SECRET sont obligatoires : on les génère au premier démarrage
+    # dans /secrets (hors du dossier uploads, qui est servi publiquement), puis on les relit.
+    command:
+      - sh
+      - -c
+      - |
+        umask 077
+        [ -s /secrets/secrets.env ] || node -e "const c=require('crypto');for(const k of ['PASSJWT','SESSION_SECRET'])console.log(k+'='+c.randomBytes(32).toString('hex'))" > /secrets/secrets.env
+        set -a
+        . /secrets/secrets.env
+        set +a
+        exec npx tsx app.ts
+    volumes:
+      - type: bind
+        source: /DATA/AppData/$AppID/uploads
+        target: /app/public/uploads
+      - type: bind
+        source: /DATA/AppData/$AppID/secrets
+        target: /secrets
+    x-casaos:
+      envs:
+        - container: PROD
+          description:
+            en_US: Set to true only when DVinyl is served over HTTPS (secure cookies).
+            fr_FR: À passer à true uniquement si DVinyl est servi en HTTPS (cookies sécurisés).
+        - container: BASE_URL
+          description:
+            en_US: Sub-path to serve DVinyl from, empty for the root.
+            fr_FR: Sous-chemin de DVinyl, vide pour la racine.
+        - container: DISCOGS_TOKEN
+          description:
+            en_US: Discogs token (vinyls, CDs).
+            fr_FR: Jeton Discogs (vinyles, CD).
+        - container: HARDCOVER_API_KEY
+          description:
+            en_US: Hardcover API key (books).
+            fr_FR: Clé API Hardcover (livres).
+        - container: TMDB_API_KEY
+          description:
+            en_US: TMDB API key (films, series).
+            fr_FR: Clé API TMDB (films, séries).
+        - container: TWITCH_CLIENT_ID
+          description:
+            en_US: Twitch client ID for IGDB (video games).
+            fr_FR: Client ID Twitch pour IGDB (jeux vidéo).
+        - container: TWITCH_CLIENT_SECRET
+          description:
+            en_US: Twitch client secret for IGDB (video games).
+            fr_FR: Secret client Twitch pour IGDB (jeux vidéo).
+        - container: REBRICKABLE_API_KEY
+          description:
+            en_US: Rebrickable API key (LEGO).
+            fr_FR: Clé API Rebrickable (LEGO).
+      ports:
+        - container: "3099"
+          description:
+            en_US: WebUI HTTP Port
+            fr_FR: Port HTTP de l'interface web
+      volumes:
+        - container: /app/public/uploads
+          description:
+            en_US: Item images uploaded from the app.
+            fr_FR: Images des objets envoyées depuis l'application.
+        - container: /secrets
+          description:
+            en_US: Generated session secrets. Keep it private and back it up.
+            fr_FR: Secrets de session générés. À garder privé et à sauvegarder.
+
+  dvinyl-db:
+    image: mongo:8.0
+    container_name: dvinyl-db
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/$AppID/mongo
+        target: /data/db
+    x-casaos:
+      volumes:
+        - container: /data/db
+          description:
+            en_US: MongoDB data (the whole collection).
+            fr_FR: Données MongoDB (toute la collection).
+
+x-casaos:
+  id: me.kyonew.dvinyl
+  architectures:
+    - amd64
+    - arm64
+  main: dvinyl
+  author: TwoBytes
+  developer: Kyonew
+  category: Media
+  icon: https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/DVinyl/icon.png
+  thumbnail: https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/DVinyl/screenshot-1.webp
+  screenshot_link:
+    - https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/DVinyl/screenshot-1.webp
+  tagline:
+    en_US: Catalog your vinyls, CDs, books, films, games and LEGO.
+    fr_FR: Cataloguez vos vinyles, CD, livres, films, jeux et LEGO.
+  description:
+    en_US: |
+      DVinyl is a self-hosted manager for physical collections: vinyls, CDs, books, films, video games and LEGO, with custom item types.
+
+      - Add items by ID, barcode scan or bulk import (e.g. a whole Discogs library)
+      - Automatic metadata from Discogs, Hardcover, TMDB, IGDB and Rebrickable
+      - Market value estimates for music collections
+      - Multiple collections and users with admin, editor and viewer roles, optional OIDC SSO
+      - Modular dashboard, 14 colour themes, 5 languages
+    fr_FR: |
+      DVinyl est un gestionnaire auto-hébergé de collections physiques : vinyles, CD, livres, films, jeux vidéo et LEGO, avec des types d'objets personnalisés.
+
+      - Ajout par identifiant, scan de code-barres ou import en masse (ex. toute une bibliothèque Discogs)
+      - Métadonnées automatiques depuis Discogs, Hardcover, TMDB, IGDB et Rebrickable
+      - Estimation de la valeur des collections musicales
+      - Plusieurs collections et utilisateurs avec rôles admin, éditeur et lecteur, SSO OIDC en option
+      - Tableau de bord modulaire, 14 thèmes de couleurs, 5 langues
+  tips:
+    before_install:
+      en_US: API keys are optional and can be added later from the app settings in ZimaOS. On first launch, open the web UI to create the admin account.
+      fr_FR: Les clés API sont facultatives et peuvent être ajoutées plus tard depuis les réglages de l'app dans ZimaOS. Au premier lancement, ouvrez l'interface web pour créer le compte administrateur.
+  title:
+    en_US: DVinyl
+  index: /
+  port_map: "3099"
+  scheme: http
+  version: "3.2.0"
+  update_at: "2026-09-27"
+  website: https://github.com/Kyonew/DVinyl
+  repo: https://github.com/Kyonew/DVinyl
+  support: https://github.com/Kyonew/DVinyl/issues
+  docs: https://github.com/Kyonew/DVinyl/wiki

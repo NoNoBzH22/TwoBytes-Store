@@ -113,10 +113,10 @@ x-casaos:
   author: TwoBytes
   developer: Kyonew
   category: Media
-  icon: https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/DVinyl/icon.png
-  thumbnail: https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/DVinyl/screenshot-1.webp
+  icon: https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/main/Apps/DVinyl/icon.png
+  thumbnail: https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/main/Apps/DVinyl/screenshot-1.webp
   screenshot_link:
-    - https://cdn.jsdelivr.net/gh/NoNoBzH22/TwoBytes-Store@main/Apps/DVinyl/screenshot-1.webp
+    - https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/main/Apps/DVinyl/screenshot-1.webp
   tagline:
     en_US: Catalog your vinyls, CDs, books, films, games and LEGO.
     fr_FR: Cataloguez vos vinyles, CD, livres, films, jeux et LEGO.

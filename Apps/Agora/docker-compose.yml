@@ -85,6 +85,6 @@ x-casaos:
   version: "2.0.2"
   update_at: "2026-10-01"
   release_notes:
-    en_US: "Agora 2.0.2: links protected by a Cloudflare captcha (Loadix 1.1.0 first) can be fetched from Agora, you solve the captcha yourself and a browser script sends the link back to JDownloader, pyLoad or the direct link window."
-    fr_FR: "Agora 2.0.2 : les liens protégés par un captcha Cloudflare (Loadix 1.1.0 pour commencer) se récupèrent depuis Agora : tu résous le captcha, un script du navigateur renvoie le lien à JDownloader, pyLoad ou la fenêtre de lien direct."
+    en_US: "Agora 2.0.2: links protected by a Cloudflare captcha (Loadix first) can be fetched from Agora, you solve the captcha yourself and a browser script sends the link back to JDownloader, pyLoad or the direct link window."
+    fr_FR: "Agora 2.0.2 : les liens protégés par un captcha Cloudflare (Loadix pour commencer) se récupèrent depuis Agora : tu résous le captcha, un script du navigateur renvoie le lien à JDownloader, pyLoad ou la fenêtre de lien direct."
   website: https://hub.docker.com/r/nonobzh22/agora

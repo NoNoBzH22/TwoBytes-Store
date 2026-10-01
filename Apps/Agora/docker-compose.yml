@@ -1,7 +1,7 @@
 name: agora
 services:
   agora:
-    image: nonobzh22/agora:2.0.1
+    image: nonobzh22/agora:2.0.2
     container_name: agora
     restart: unless-stopped
     network_mode: bridge
@@ -82,9 +82,9 @@ x-casaos:
   index: /
   port_map: "3067"
   scheme: http
-  version: "2.0.1"
-  update_at: "2026-09-28"
+  version: "2.0.2"
+  update_at: "2026-10-01"
   release_notes:
-    en_US: "Agora 2.0.1: pyLoad-ng support with automatic Movies / Series sorting, source priority and activation fixed, no more EPERM errors on Windows."
-    fr_FR: "Agora 2.0.1 : prise en charge de pyLoad-ng avec rangement automatique Films / Séries, priorité et activation des sources corrigées, plus d'erreur EPERM sous Windows."
+    en_US: "Agora 2.0.2: links protected by a Cloudflare captcha (Loadix 1.1.0 first) can be fetched from Agora, you solve the captcha yourself and a browser script sends the link back to JDownloader, pyLoad or the direct link window."
+    fr_FR: "Agora 2.0.2 : les liens protégés par un captcha Cloudflare (Loadix 1.1.0 pour commencer) se récupèrent depuis Agora : tu résous le captcha, un script du navigateur renvoie le lien à JDownloader, pyLoad ou la fenêtre de lien direct."
   website: https://hub.docker.com/r/nonobzh22/agora

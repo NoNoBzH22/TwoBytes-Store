@@ -1,0 +1,40 @@
+{
+  "architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "author": "TwoBytes",
+  "developer": "Kyonew",
+  "category": "Media",
+  "thumbnail": "/apps/me.kyonew.dvinyl/assets/screenshot-1.webp",
+  "screenshot_link": [
+    "/apps/me.kyonew.dvinyl/assets/screenshot-1.webp",
+    "/apps/me.kyonew.dvinyl/assets/screenshot-2.webp",
+    "/apps/me.kyonew.dvinyl/assets/screenshot-3.webp",
+    "/apps/me.kyonew.dvinyl/assets/screenshot-4.webp",
+    "/apps/me.kyonew.dvinyl/assets/screenshot-5.webp"
+  ],
+  "tagline": "Catalog your vinyls, CDs, books, films, games and LEGO.",
+  "description": "DVinyl is a self-hosted manager for physical collections: vinyls, CDs, books, films, video games and LEGO, with custom item types.\n\n- Add items by ID, barcode scan or bulk import (e.g. a whole Discogs library)\n- Automatic metadata from Discogs, Hardcover, TMDB, IGDB and Rebrickable\n- Market value estimates for music collections\n- Multiple collections and users with admin, editor and viewer roles, optional OIDC SSO\n- Modular dashboard, 14 colour themes, 5 languages\n",
+  "tips": {
+    "before_install": "API keys are optional and can be added later from the app settings in ZimaOS. On first launch, open the web UI to create the admin account."
+  },
+  "update_at": "2026-10-02",
+  "website": "https://github.com/Kyonew/DVinyl",
+  "repo": "https://github.com/Kyonew/DVinyl",
+  "support": "https://github.com/Kyonew/DVinyl/issues",
+  "docs": "https://github.com/Kyonew/DVinyl/wiki",
+  "title": "DVinyl",
+  "release_note": "DVinyl 3.2.1: TMDB duplicate checks now tell movies and TV shows apart, Goodreads import fixes.",
+  "base_url": "https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/gh-pages",
+  "id": "me.kyonew.dvinyl",
+  "version": "3.2.1",
+  "categories": [
+    "media"
+  ],
+  "min_memory": 0,
+  "min_image_size": {
+    "amd64": 408121757,
+    "arm64": 394788334
+  }
+}

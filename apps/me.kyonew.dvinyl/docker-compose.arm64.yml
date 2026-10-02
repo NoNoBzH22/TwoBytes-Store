@@ -1,0 +1,60 @@
+name: dvinyl
+services:
+  dvinyl:
+    image: ghcr.io/kyonew/dvinyl:latest@sha256:749dbad51efc32dd138ab9a1656de4e229bbc83cfce10e27668eb7b9852273d9
+    container_name: dvinyl
+    restart: unless-stopped
+    depends_on:
+      - dvinyl-db
+    ports:
+      - target: 3099
+        published: "3099"
+        protocol: tcp
+    environment:
+      MONGODB_URL: mongodb://dvinyl-db:27017/dvinyl
+      VINYL_PORT: "3099"
+      PROD: "false"
+      BASE_URL: ""
+      DISCOGS_TOKEN: ""
+      HARDCOVER_API_KEY: ""
+      TMDB_API_KEY: ""
+      TWITCH_CLIENT_ID: ""
+      TWITCH_CLIENT_SECRET: ""
+      REBRICKABLE_API_KEY: ""
+    # PASSJWT et SESSION_SECRET sont obligatoires : on les génère au premier démarrage
+    # dans /secrets (hors du dossier uploads, qui est servi publiquement), puis on les relit.
+    command:
+      - sh
+      - -c
+      - |
+        umask 077
+        [ -s /secrets/secrets.env ] || node -e "const c=require('crypto');for(const k of ['PASSJWT','SESSION_SECRET'])console.log(k+'='+c.randomBytes(32).toString('hex'))" > /secrets/secrets.env
+        set -a
+        . /secrets/secrets.env
+        set +a
+        exec npx tsx app.ts
+    volumes:
+      - type: bind
+        source: /DATA/AppData/$AppID/uploads
+        target: /app/public/uploads
+      - type: bind
+        source: /DATA/AppData/$AppID/secrets
+        target: /secrets
+  dvinyl-db:
+    image: mongo:8.0@sha256:65e9d974435d072874cf08922f26ecdf7d45b54662ce632509750b5c23ba5c5f
+    container_name: dvinyl-db
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/$AppID/mongo
+        target: /data/db
+x-casaos:
+  id: me.kyonew.dvinyl
+  main: dvinyl
+  icon: https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/gh-pages/apps/me.kyonew.dvinyl/assets/icon.png
+  title:
+    en_US: DVinyl
+  index: /
+  port_map: "3099"
+  scheme: http
+  version: "3.2.1"

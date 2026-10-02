@@ -1,0 +1,50 @@
+{
+  "version": 2,
+  "updated_at": "2026-10-02T18:02:36Z",
+  "app_count": 2,
+  "base_url": "https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/gh-pages",
+  "apps": [
+    {
+      "id": "me.kyonew.dvinyl",
+      "title": "DVinyl",
+      "tagline": "Catalog your vinyls, CDs, books, films, games and LEGO.",
+      "category": "Media",
+      "categories": [
+        "media"
+      ],
+      "author": "TwoBytes",
+      "developer": "Kyonew",
+      "architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "icon": "/apps/me.kyonew.dvinyl/assets/icon.png",
+      "thumbnail": "/apps/me.kyonew.dvinyl/assets/screenshot-1.webp",
+      "compose_url": "/apps/me.kyonew.dvinyl/docker-compose.yml",
+      "meta_url": "/apps/me.kyonew.dvinyl/meta.json",
+      "content_hash": "7ce3ed3b",
+      "version": "3.2.1"
+    },
+    {
+      "id": "space.nolhantirer.agora",
+      "title": "Agora",
+      "tagline": "French app: search, browse and send downloads from plugin-based sources.",
+      "category": "Media",
+      "categories": [
+        "media"
+      ],
+      "author": "TwoBytes",
+      "developer": "Nolhan",
+      "architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "icon": "/apps/space.nolhantirer.agora/assets/icon.png",
+      "thumbnail": "/apps/space.nolhantirer.agora/assets/screenshot-1.webp",
+      "compose_url": "/apps/space.nolhantirer.agora/docker-compose.yml",
+      "meta_url": "/apps/space.nolhantirer.agora/meta.json",
+      "content_hash": "ae286ce2",
+      "version": "2.0.2"
+    }
+  ]
+}

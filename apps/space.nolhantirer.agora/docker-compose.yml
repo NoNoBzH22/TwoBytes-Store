@@ -1,0 +1,32 @@
+name: agora
+services:
+  agora:
+    image: nonobzh22/agora:2.0.2
+    container_name: agora
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - target: 3067
+        published: "3067"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/$AppID/data
+        target: /data
+      - type: bind
+        source: /DATA/AppData/$AppID/downloads
+        target: /downloads
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+x-casaos:
+  id: space.nolhantirer.agora
+  main: agora
+  icon: https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/gh-pages/apps/space.nolhantirer.agora/assets/icon.png
+  title:
+    en_US: Agora
+  index: /
+  port_map: "3067"
+  scheme: http
+  version: "2.0.2"

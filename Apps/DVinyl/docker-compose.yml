@@ -150,8 +150,11 @@ x-casaos:
   index: /
   port_map: "3099"
   scheme: http
-  version: "3.2.0"
-  update_at: "2026-09-27"
+  version: "3.2.1"
+  update_at: "2026-10-02"
+  release_notes:
+    en_US: "DVinyl 3.2.1: TMDB duplicate checks now tell movies and TV shows apart, Goodreads import fixes."
+    fr_FR: "DVinyl 3.2.1 : les doublons TMDB distinguent désormais films et séries, corrections de l'import Goodreads."
   website: https://github.com/Kyonew/DVinyl
   repo: https://github.com/Kyonew/DVinyl
   support: https://github.com/Kyonew/DVinyl/issues

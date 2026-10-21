@@ -1,0 +1,9 @@
+{
+  "id": "space.nolhantirer.agora",
+  "tagline": "Application française : recherche, catalogue et envoi de téléchargements depuis des sources à plugins.",
+  "description": "Agora est une application web auto-hébergée française : son interface est en français et ses plugins officiels visent des sources francophones. Elle interroge plusieurs sources à la fois grâce à des plugins signés, affiche les résultats avec les métadonnées TMDB et transmet les liens à JDownloader ou à pyLoad-ng.\n\n- Interface en français\n- Marketplace de plugins signés en Ed25519\n- Comptes multi-utilisateurs avec rôle administrateur\n- Assistant de première configuration : compte admin, choix des plugins, réglages\n- Fonctionne en HTTP sur le réseau local ; le HTTPS est optionnel derrière un reverse proxy\n",
+  "release_note": "Agora 2.0.2 : les liens protégés par un captcha Cloudflare (Loadix pour commencer) se récupèrent depuis Agora : tu résous le captcha, un script du navigateur renvoie le lien à JDownloader, pyLoad ou la fenêtre de lien direct.",
+  "tips": {
+    "before_install": "Au premier lancement, ouvrez l'interface web et suivez l'assistant pour créer le compte administrateur."
+  }
+}

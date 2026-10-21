@@ -1,0 +1,37 @@
+{
+  "architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "author": "TwoBytes",
+  "developer": "Nolhan",
+  "category": "Media",
+  "thumbnail": "/apps/space.nolhantirer.agora/assets/screenshot-1.webp",
+  "screenshot_link": [
+    "/apps/space.nolhantirer.agora/assets/screenshot-1.webp",
+    "/apps/space.nolhantirer.agora/assets/screenshot-2.webp",
+    "/apps/space.nolhantirer.agora/assets/screenshot-3.webp",
+    "/apps/space.nolhantirer.agora/assets/screenshot-4.webp",
+    "/apps/space.nolhantirer.agora/assets/screenshot-5.webp"
+  ],
+  "tagline": "French app: search, browse and send downloads from plugin-based sources.",
+  "description": "Agora is a French self-hosted web app: its interface is in French and its official plugins target French-language sources. It searches several sources at once through signed plugins, shows the results with TMDB metadata, and hands the links to JDownloader or pyLoad-ng.\n\n- French interface (no other language for now)\n- Plugin marketplace with Ed25519-signed plugins\n- Multi-user accounts with an admin role\n- First-run setup wizard: create the admin account, pick plugins, configure\n- Works over plain HTTP on your LAN; HTTPS is optional behind a reverse proxy\n",
+  "tips": {
+    "before_install": "On first launch, open the web UI and follow the setup wizard to create the admin account."
+  },
+  "update_at": "2026-10-01",
+  "website": "https://hub.docker.com/r/nonobzh22/agora",
+  "title": "Agora",
+  "release_note": "Agora 2.0.2: links protected by a Cloudflare captcha (Loadix first) can be fetched from Agora, you solve the captcha yourself and a browser script sends the link back to JDownloader, pyLoad or the direct link window.",
+  "base_url": "https://raw.githubusercontent.com/NoNoBzH22/TwoBytes-Store/gh-pages",
+  "id": "space.nolhantirer.agora",
+  "version": "2.0.2",
+  "categories": [
+    "media"
+  ],
+  "min_memory": 0,
+  "min_image_size": {
+    "amd64": 83047702,
+    "arm64": 83060826
+  }
+}

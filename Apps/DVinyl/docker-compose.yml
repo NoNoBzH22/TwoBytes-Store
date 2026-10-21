@@ -1,7 +1,7 @@
 name: dvinyl
 services:
   dvinyl:
-    image: ghcr.io/kyonew/dvinyl:latest
+    image: ghcr.io/kyonew/dvinyl:3.3.0
     container_name: dvinyl
     restart: unless-stopped
     depends_on:
@@ -150,11 +150,11 @@ x-casaos:
   index: /
   port_map: "3099"
   scheme: http
-  version: "3.2.1"
-  update_at: "2026-10-02"
+  version: "3.3.0"
+  update_at: "2026-10-21"
   release_notes:
-    en_US: "DVinyl 3.2.1: TMDB duplicate checks now tell movies and TV shows apart, Goodreads import fixes."
-    fr_FR: "DVinyl 3.2.1 : les doublons TMDB distinguent désormais films et séries, corrections de l'import Goodreads."
+    en_US: "DVinyl 3.3.0: redesigned mobile layout, optional AI assist (bring your own key, set up from Instance administration), copy an item to a new entry, distinct titles count, per-type filters. Export your database before upgrading."
+    fr_FR: "DVinyl 3.3.0 : interface mobile repensée, assistance IA optionnelle (votre propre clé, à configurer dans l'administration de l'instance), copie d'un objet vers une nouvelle entrée, compteur de titres distincts, filtres par type. Exportez votre base avant la mise à jour."
   website: https://github.com/Kyonew/DVinyl
   repo: https://github.com/Kyonew/DVinyl
   support: https://github.com/Kyonew/DVinyl/issues

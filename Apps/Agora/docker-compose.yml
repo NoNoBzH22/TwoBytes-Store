@@ -1,7 +1,7 @@
 name: agora
 services:
   agora:
-    image: nonobzh22/agora:2.0.3
+    image: nonobzh22/agora:2.0.4
     container_name: agora
     restart: unless-stopped
     network_mode: bridge
@@ -82,9 +82,9 @@ x-casaos:
   index: /
   port_map: "3067"
   scheme: http
-  version: "2.0.3"
+  version: "2.0.4"
   update_at: "2026-11-02"
   release_notes:
-    en_US: "Agora 2.0.3: an unavailable source now shows why on its plugin card, each source has a timeout so a slow one no longer blocks the others, Zone-Téléchargement 1.1.0 logs in with your member account, and dependencies get security updates."
-    fr_FR: "Agora 2.0.3 : une source indisponible affiche son motif sur la carte du plugin, chaque source a un délai maximal pour ne plus bloquer les autres, Zone-Téléchargement 1.1.0 se connecte à ton compte membre, et les dépendances reçoivent des correctifs de sécurité."
+    en_US: "Agora 2.0.4: security fixes (per-account login limit, no server details in errors), an unavailable source shows why on its plugin card, and Zone-Téléchargement 1.1.1 logs in with your member account."
+    fr_FR: "Agora 2.0.4 : correctifs de sécurité (limite de connexion par compte, plus de détails du serveur dans les erreurs), une source indisponible affiche son motif sur la carte du plugin, et Zone-Téléchargement 1.1.1 se connecte à ton compte membre."
   website: https://hub.docker.com/r/nonobzh22/agora

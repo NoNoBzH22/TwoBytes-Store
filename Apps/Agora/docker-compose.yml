@@ -1,7 +1,7 @@
 name: agora
 services:
   agora:
-    image: nonobzh22/agora:2.0.2
+    image: nonobzh22/agora:2.0.3
     container_name: agora
     restart: unless-stopped
     network_mode: bridge
@@ -82,9 +82,9 @@ x-casaos:
   index: /
   port_map: "3067"
   scheme: http
-  version: "2.0.2"
-  update_at: "2026-10-01"
+  version: "2.0.3"
+  update_at: "2026-11-02"
   release_notes:
-    en_US: "Agora 2.0.2: links protected by a Cloudflare captcha (Loadix first) can be fetched from Agora, you solve the captcha yourself and a browser script sends the link back to JDownloader, pyLoad or the direct link window."
-    fr_FR: "Agora 2.0.2 : les liens protégés par un captcha Cloudflare (Loadix pour commencer) se récupèrent depuis Agora : tu résous le captcha, un script du navigateur renvoie le lien à JDownloader, pyLoad ou la fenêtre de lien direct."
+    en_US: "Agora 2.0.3: an unavailable source now shows why on its plugin card, each source has a timeout so a slow one no longer blocks the others, Zone-Téléchargement 1.1.0 logs in with your member account, and dependencies get security updates."
+    fr_FR: "Agora 2.0.3 : une source indisponible affiche son motif sur la carte du plugin, chaque source a un délai maximal pour ne plus bloquer les autres, Zone-Téléchargement 1.1.0 se connecte à ton compte membre, et les dépendances reçoivent des correctifs de sécurité."
   website: https://hub.docker.com/r/nonobzh22/agora

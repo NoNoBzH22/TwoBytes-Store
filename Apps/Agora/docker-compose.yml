@@ -1,7 +1,7 @@
 name: agora
 services:
   agora:
-    image: nonobzh22/agora:2.0.4
+    image: nonobzh22/agora:2.1.0
     container_name: agora
     restart: unless-stopped
     network_mode: bridge
@@ -82,9 +82,9 @@ x-casaos:
   index: /
   port_map: "3067"
   scheme: http
-  version: "2.0.4"
-  update_at: "2026-11-02"
+  version: "2.1.0"
+  update_at: "2026-11-04"
   release_notes:
-    en_US: "Agora 2.0.4: security fixes (per-account login limit, no server details in errors), an unavailable source shows why on its plugin card, and Zone-Téléchargement 1.1.1 logs in with your member account."
-    fr_FR: "Agora 2.0.4 : correctifs de sécurité (limite de connexion par compte, plus de détails du serveur dans les erreurs), une source indisponible affiche son motif sur la carte du plugin, et Zone-Téléchargement 1.1.1 se connecte à ton compte membre."
+    en_US: "Agora 2.1.0: AllDebrid and Real-Debrid unlockers (links go through your account before JDownloader, pyLoad or the direct link), one-click updates with automatic rollback, clearer password confirmation and episode mirrors told apart."
+    fr_FR: "Agora 2.1.0 : débrideurs AllDebrid et Real-Debrid (les liens passent par ton compte avant JDownloader, pyLoad ou le lien direct), mise à jour en un clic avec retour arrière automatique, confirmation par mot de passe plus claire et miroirs d'épisodes distingués."
   website: https://hub.docker.com/r/nonobzh22/agora

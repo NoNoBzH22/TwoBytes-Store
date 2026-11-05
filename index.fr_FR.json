@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "id": "me.kyonew.dvinyl",
+      "tagline": "Cataloguez vos vinyles, CD, livres, films, jeux et LEGO."
+    },
+    {
+      "id": "space.nolhantirer.agora",
+      "tagline": "Application française : recherche, catalogue et envoi de téléchargements depuis des sources à plugins."
+    }
+  ]
+}

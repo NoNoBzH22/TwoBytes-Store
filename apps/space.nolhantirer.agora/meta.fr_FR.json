@@ -1,0 +1,9 @@
+{
+  "id": "space.nolhantirer.agora",
+  "tagline": "Application française : recherche, catalogue et envoi de téléchargements depuis des sources à plugins.",
+  "description": "Agora est une application web auto-hébergée française : son interface est en français et ses plugins officiels visent des sources francophones. Elle interroge plusieurs sources à la fois grâce à des plugins signés, affiche les résultats avec les métadonnées TMDB et transmet les liens à JDownloader ou à pyLoad-ng.\n\n- Interface en français\n- Marketplace de plugins signés en Ed25519\n- Comptes multi-utilisateurs avec rôle administrateur\n- Assistant de première configuration : compte admin, choix des plugins, réglages\n- Fonctionne en HTTP sur le réseau local ; le HTTPS est optionnel derrière un reverse proxy\n",
+  "release_note": "Agora 2.1.0 : débrideurs AllDebrid et Real-Debrid (les liens passent par ton compte avant JDownloader, pyLoad ou le lien direct), mise à jour en un clic avec retour arrière automatique, confirmation par mot de passe plus claire et miroirs d'épisodes distingués.",
+  "tips": {
+    "before_install": "Au premier lancement, ouvrez l'interface web et suivez l'assistant pour créer le compte administrateur."
+  }
+}

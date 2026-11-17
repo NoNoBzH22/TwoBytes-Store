@@ -1,7 +1,7 @@
 name: dvinyl
 services:
   dvinyl:
-    image: ghcr.io/kyonew/dvinyl:3.3.0
+    image: ghcr.io/kyonew/dvinyl:4.0.0
     container_name: dvinyl
     restart: unless-stopped
     depends_on:
@@ -32,8 +32,15 @@ services:
         set -a
         . /secrets/secrets.env
         set +a
-        exec npx tsx app.ts
+        exec node --import tsx app.ts
+    # Depuis 4.0, toute la collection tient dans /app/data/dvinyl.sqlite. MongoDB n'est gardé
+    # que pour les installations 3.x : au premier démarrage avec /app/data monté, DVinyl y
+    # copie seul les données de MongoDB (qui n'est que lu). Sur une installation neuve, la
+    # base Mongo est vide et rien n'est importé.
     volumes:
+      - type: bind
+        source: /DATA/AppData/$AppID/data
+        target: /app/data
       - type: bind
         source: /DATA/AppData/$AppID/uploads
         target: /app/public/uploads
@@ -80,6 +87,10 @@ services:
             en_US: WebUI HTTP Port
             fr_FR: Port HTTP de l'interface web
       volumes:
+        - container: /app/data
+          description:
+            en_US: The whole collection (SQLite database) and automatic backups.
+            fr_FR: Toute la collection (base SQLite) et les sauvegardes automatiques.
         - container: /app/public/uploads
           description:
             en_US: Item images uploaded from the app.
@@ -101,8 +112,8 @@ services:
       volumes:
         - container: /data/db
           description:
-            en_US: MongoDB data (the whole collection).
-            fr_FR: Données MongoDB (toute la collection).
+            en_US: MongoDB data from DVinyl 3.x, only read once to move it to SQLite.
+            fr_FR: Données MongoDB de DVinyl 3.x, lues une seule fois pour passer à SQLite.
 
 x-casaos:
   id: me.kyonew.dvinyl
@@ -132,7 +143,8 @@ x-casaos:
       - Automatic metadata from Discogs, Hardcover, TMDB, IGDB and Rebrickable
       - Market value estimates for music collections
       - Multiple collections and users with admin, editor and viewer roles, optional OIDC SSO
-      - Modular dashboard, 14 colour themes, 5 languages
+      - Per-collection look (navigation, colours, home page widgets), 6 languages
+      - Whole collection in a single SQLite file, with scheduled backups
     fr_FR: |
       DVinyl est un gestionnaire auto-hébergé de collections physiques : vinyles, CD, livres, films, jeux vidéo et LEGO, avec des types d'objets personnalisés.
 
@@ -140,7 +152,8 @@ x-casaos:
       - Métadonnées automatiques depuis Discogs, Hardcover, TMDB, IGDB et Rebrickable
       - Estimation de la valeur des collections musicales
       - Plusieurs collections et utilisateurs avec rôles admin, éditeur et lecteur, SSO OIDC en option
-      - Tableau de bord modulaire, 14 thèmes de couleurs, 5 langues
+      - Apparence propre à chaque collection (navigation, couleurs, widgets d'accueil), 6 langues
+      - Toute la collection dans un seul fichier SQLite, avec sauvegardes planifiées
   tips:
     before_install:
       en_US: API keys are optional and can be added later from the app settings in ZimaOS. On first launch, open the web UI to create the admin account.
@@ -150,11 +163,11 @@ x-casaos:
   index: /
   port_map: "3099"
   scheme: http
-  version: "3.3.0"
-  update_at: "2026-10-21"
+  version: "4.0.0"
+  update_at: "2026-11-17"
   release_notes:
-    en_US: "DVinyl 3.3.0: redesigned mobile layout, optional AI assist (bring your own key, set up from Instance administration), copy an item to a new entry, distinct titles count, per-type filters. Export your database before upgrading."
-    fr_FR: "DVinyl 3.3.0 : interface mobile repensée, assistance IA optionnelle (votre propre clé, à configurer dans l'administration de l'instance), copie d'un objet vers une nouvelle entrée, compteur de titres distincts, filtres par type. Exportez votre base avant la mise à jour."
+    en_US: "DVinyl 4.0.0: the collection moves from MongoDB to a single SQLite file, copied automatically on the first start (MongoDB is only read). Per-collection look studio, requests between members with push notifications, purchase price, record formats and runouts, film cast, consoles, boxsets, invite links, scheduled backups, Russian. Export your database (Instance admin, Backup → Export) before upgrading."
+    fr_FR: "DVinyl 4.0.0 : la collection passe de MongoDB à un seul fichier SQLite, copié automatiquement au premier démarrage (MongoDB n'est que lu). Studio d'apparence par collection, demandes entre membres avec notifications, prix d'achat, formats et matrices des disques, distribution des films, consoles, coffrets, liens d'invitation, sauvegardes planifiées, russe. Exportez votre base (administration de l'instance, Sauvegarde → Exporter) avant la mise à jour."
   website: https://github.com/Kyonew/DVinyl
   repo: https://github.com/Kyonew/DVinyl
   support: https://github.com/Kyonew/DVinyl/issues

@@ -30,7 +30,7 @@ https://github.com/NoNoBzH22/TwoBytes-Store/archive/refs/heads/main.zip
 Chaque application range ses données dans `/DATA/AppData/<app>/`.
 
 - **Agora** : `data/` (réglages, comptes, plugins, bases SQLite) et `downloads/` (fichiers `.crawljob` pour JDownloader).
-- **DVinyl** : `mongo/` (la base), `uploads/` (images) et `secrets/` (`PASSJWT` et `SESSION_SECRET`, générés au premier démarrage).
+- **DVinyl** : `data/` (la base SQLite, depuis la 4.0), `mongo/` (l'ancienne base 3.x, lue une seule fois pour la migration), `uploads/` (images) et `secrets/` (`PASSJWT` et `SESSION_SECRET`, générés au premier démarrage).
 
 ## Ajouter une application
 

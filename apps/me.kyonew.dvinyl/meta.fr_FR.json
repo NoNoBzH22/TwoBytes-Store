@@ -1,0 +1,9 @@
+{
+  "id": "me.kyonew.dvinyl",
+  "description": "DVinyl est un gestionnaire auto-hébergé de collections physiques : vinyles, CD, livres, films, jeux vidéo et LEGO, avec des types d'objets personnalisés.\n\n- Ajout par identifiant, scan de code-barres ou import en masse (ex. toute une bibliothèque Discogs)\n- Métadonnées automatiques depuis Discogs, Hardcover, TMDB, IGDB et Rebrickable\n- Estimation de la valeur des collections musicales\n- Plusieurs collections et utilisateurs avec rôles admin, éditeur et lecteur, SSO OIDC en option\n- Apparence propre à chaque collection (navigation, couleurs, widgets d'accueil), 6 langues\n- Toute la collection dans un seul fichier SQLite, avec sauvegardes planifiées\n",
+  "release_note": "DVinyl 4.0.0 : la collection passe de MongoDB à un seul fichier SQLite, copié automatiquement au premier démarrage (MongoDB n'est que lu). Studio d'apparence par collection, demandes entre membres avec notifications, prix d'achat, formats et matrices des disques, distribution des films, consoles, coffrets, liens d'invitation, sauvegardes planifiées, russe. Exportez votre base (administration de l'instance, Sauvegarde → Exporter) avant la mise à jour.",
+  "tagline": "Cataloguez vos vinyles, CD, livres, films, jeux et LEGO.",
+  "tips": {
+    "before_install": "Les clés API sont facultatives et peuvent être ajoutées plus tard depuis les réglages de l'app dans ZimaOS. Au premier lancement, ouvrez l'interface web pour créer le compte administrateur."
+  }
+}

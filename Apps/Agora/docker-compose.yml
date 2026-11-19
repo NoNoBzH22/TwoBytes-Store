@@ -1,7 +1,7 @@
 name: agora
 services:
   agora:
-    image: nonobzh22/agora:2.1.0
+    image: nonobzh22/agora:2.1.1
     container_name: agora
     restart: unless-stopped
     network_mode: bridge
@@ -82,9 +82,9 @@ x-casaos:
   index: /
   port_map: "3067"
   scheme: http
-  version: "2.1.0"
-  update_at: "2026-11-04"
+  version: "2.1.1"
+  update_at: "2026-11-19"
   release_notes:
-    en_US: "Agora 2.1.0: AllDebrid and Real-Debrid unlockers (links go through your account before JDownloader, pyLoad or the direct link), one-click updates with automatic rollback, clearer password confirmation and episode mirrors told apart."
-    fr_FR: "Agora 2.1.0 : débrideurs AllDebrid et Real-Debrid (les liens passent par ton compte avant JDownloader, pyLoad ou le lien direct), mise à jour en un clic avec retour arrière automatique, confirmation par mot de passe plus claire et miroirs d'épisodes distingués."
+    en_US: "Agora 2.1.1: TMDB no longer swaps a title for an unrelated movie, Downloads settings explain a loading failure instead of staying empty. Update FlixArt, FreeTel, ZT, ZTNews and FS24 from Settings → Sources."
+    fr_FR: "Agora 2.1.1 : TMDB ne remplace plus un titre par un film sans rapport, les réglages de téléchargement expliquent un échec de chargement au lieu de rester vides. Mets à jour FlixArt, FreeTel, ZT, ZTNews et FS24 depuis Paramètres → Sources."
   website: https://hub.docker.com/r/nonobzh22/agora
